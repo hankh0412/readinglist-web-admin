@@ -34,27 +34,10 @@ public class ReadingListController {
         return "readingList";
     }
 	
-  /*
-    @RequestMapping(method = RequestMethod.POST)
-    public String addToReadingList(Reader reader, @Valid ReadingList readingLists, Errors errors) {
-    	
-    	if(errors.hasErrors()){
-    		System.out.println("hahahaha : "+ errors.toString());
-    		return "redirect:/";
-    	}
-    	
-    	readingLists.setReader(reader);
-        readingListRepository.save(readingLists);
-        return "redirect:/";
-    }
-    	*/
-	
 	@Transactional
 	@RequestMapping(method = RequestMethod.POST)
     public String addToReadingList(Reader reader, @RequestParam("isbn10") String isbn10, @RequestParam("isbn13") String isbn13, @RequestParam("title") String title, @RequestParam("author") String author, @RequestParam("review") String review, @RequestParam("rating") float rating) {
 
-		//ReadingList readingList = readingListRepository.findByReaderAndIsbn10OrIsbn13(reader, isbn10, isbn13);
-		
 		Book book = bookRepository.findByIsbn10OrIsbn13(isbn10, isbn13);
 		
 		if(book == null){

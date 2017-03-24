@@ -9,10 +9,10 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-public class ReadingListApplication extends WebMvcConfigurerAdapter {
+public class Application extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReadingListApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 	
 	@Override

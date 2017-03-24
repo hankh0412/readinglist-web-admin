@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 public class Reader implements UserDetails {
 
-
 	private static final long serialVersionUID = 4102659754585707669L;
 	
 	
@@ -20,9 +19,6 @@ public class Reader implements UserDetails {
     private String fullname;
     private String password;
     
-    //@OneToMany(mappedBy = "reader")
-    //private List<ReadingList> readingList = new ArrayList<ReadingList>();
-
 
     public String getUsername() {
         return username;
@@ -48,8 +44,8 @@ public class Reader implements UserDetails {
         this.password = password;
     }
 
+    
     // UserDetails 메서드
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_READER"));

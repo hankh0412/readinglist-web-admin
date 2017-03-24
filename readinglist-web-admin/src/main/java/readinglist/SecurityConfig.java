@@ -23,11 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
           .authorizeRequests()
             .antMatchers("/").access("hasRole('READER')")
-            //.antMatchers("/mgmt/**").access("hasRole('ACTUATOR')")
             .antMatchers("/**").permitAll()
-
-         .and()
-
+          .and()
           .formLogin()
             .loginPage("/login")
             .failureUrl("/login?error=true");
@@ -46,11 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 throw new UsernameNotFoundException("User '" + username + "' not found.");
             }
         });
-        /*
-        .and()
-        .inMemoryAuthentication()
-            .withUser("admin").password("admin")
-            .roles("ACTUATOR")*/
     }
 
 }

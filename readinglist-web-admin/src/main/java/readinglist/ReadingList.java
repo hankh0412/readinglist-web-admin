@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class ReadingList {
@@ -25,12 +24,9 @@ public class ReadingList {
     private Book book;
     
 	private String review;
-    
-    //@NotNull
     private float rating;
 
-
-
+    
 	public Long getReadinglist_id() {
 		return readinglist_id;
 	}
@@ -76,9 +72,5 @@ public class ReadingList {
 		return "ReadingList [readinglist_id=" + readinglist_id + ", reader=" + reader + ", book=" + book + ", review="
 				+ review + ", rating=" + rating + "]";
 	}
-
-	
-
-	
 
 }

@@ -1,13 +1,9 @@
 package readinglist;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Book {
@@ -21,10 +17,6 @@ public class Book {
     private String title;
     private String author;
     
-    /*
-    @OneToMany(mappedBy = "book")
-    private List<ReadingList> readingList = new ArrayList<ReadingList>();
-   */
     
     public Long getBook_id() {
 		return book_id;
@@ -65,14 +57,7 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-/*
-	public List<ReadingList> getReadingList() {
-		return readingList;
-	}
 
-	public void setReadingList(List<ReadingList> readingList) {
-		this.readingList = readingList;
-	}*/
 
 	@Override
 	public String toString() {

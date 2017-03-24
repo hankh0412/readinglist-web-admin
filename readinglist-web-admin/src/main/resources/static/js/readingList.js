@@ -52,12 +52,6 @@ function addBook(){
 		return;
 	}
 	
-	/*
-	if($('input[name=review]').val() == ""){
-		alert("Write Review");
-		return;
-	}*/
-	
 	$("#target").submit();
 	
 }
