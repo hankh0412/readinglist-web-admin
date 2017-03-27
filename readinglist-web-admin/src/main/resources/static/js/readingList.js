@@ -47,7 +47,7 @@ function clear(){
 
 function addBook(){
 	
-	if($('input[name=isbn10]').val() == "" || $('input[name=isbn13]').val() == ""){
+	if($('input[name=isbn10]').val() == "" && $('input[name=isbn13]').val() == ""){
 		alert("Search Book");
 		return;
 	}

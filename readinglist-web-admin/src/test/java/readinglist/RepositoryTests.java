@@ -69,9 +69,9 @@ public class RepositoryTests {
        // assertThat(user.getVin()).isEqualTo("1234");
     	
     	
-        List<ReadingList> readingLists = readingListRepository.findByReader(reader);
+        //List<ReadingList> readingLists = readingListRepository.findByReader(reader);
     	
-    	readingLists.forEach(System.out::println);
+    	//readingLists.forEach(System.out::println);
     	
     }
     

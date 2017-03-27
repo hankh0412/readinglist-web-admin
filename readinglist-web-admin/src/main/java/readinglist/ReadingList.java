@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -23,6 +24,7 @@ public class ReadingList {
     @JoinColumn(name = "book_id")
     private Book book;
     
+    @Lob
 	private String review;
     private float rating;
 

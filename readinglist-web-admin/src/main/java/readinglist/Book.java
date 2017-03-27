@@ -1,5 +1,6 @@
 package readinglist;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,9 +13,16 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long book_id;
     
+    @Column(length = 10)
     private String isbn10;
+    
+    @Column(length = 13)
 	private String isbn13;
+    
+    @Column(length = 100)
     private String title;
+    
+    @Column(length = 100)
     private String author;
     
     

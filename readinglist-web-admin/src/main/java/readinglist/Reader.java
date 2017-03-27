@@ -2,6 +2,8 @@ package readinglist;
 
 import java.util.Arrays;
 import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,8 +17,13 @@ public class Reader implements UserDetails {
 	
 	
 	@Id
+	@Column(nullable = false, length = 20)
     private String username;
+	
+	@Column(length = 50)
     private String fullname;
+	
+	@Column(length = 20)
     private String password;
     
 
