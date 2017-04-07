@@ -34,6 +34,11 @@ public class ReadingListController {
         return "readingList";
     }
 	
+	@RequestMapping(value = "/popup", method = RequestMethod.GET)
+    public String popup(Reader reader, Model model) {
+        return "popup";
+    }
+	
 	@Transactional
 	@RequestMapping(method = RequestMethod.POST)
     public String addToReadingList(Reader reader, @RequestParam("isbn10") String isbn10, @RequestParam("isbn13") String isbn13, @RequestParam("title") String title, @RequestParam("author") String author, @RequestParam("review") String review, @RequestParam("rating") float rating) {

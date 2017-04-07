@@ -19,7 +19,7 @@
           + ${readinglist.book.isbn13}"
           th:text="${readinglist.book.title}">Title</a> by
         <span th:text="${readinglist.book.author}">Author</span>
-        (ISBN: <span th:text="${readinglist.book.isbn13}">ISBN</span>) - <span th:text="${readinglist.rating}">Rating</span>
+        (ISBN13: <span th:text="${readinglist.book.isbn13}">ISBN13</span>) - <span th:text="${readinglist.rating}">Rating</span>
       </dt>
       <dd class="bookReview">
         <span th:if="${readinglist.review}"
@@ -36,8 +36,8 @@
     
   <h3>Add a book</h3>
   <form id="target" method="POST" onkeydown="return captureReturnKey(event)" th:action="@{/}">
-  	<label for="isbn">ISBN:</label>
-    <input type="text" name="isbn" size="15"></input>
+  	<!-- <label for="isbn">ISBN:</label>-->
+    <input type="text" name="searchWord" size="25" placeholder="title, author, isbn, etc.. "></input>
     <input type="button" value="search" onclick="search()"/><br />
     <label for="title">Title:</label>
     <span id="span_title"></span>
