@@ -31,7 +31,11 @@
   <br/>
   <hr/>
   <div>
-    <p><a th:href="${@environment.getProperty('rest_client_url')}" th:text="Home">Title</a></p>
+    <p>
+    	<a th:href="${@environment.getProperty('rest_client_url')}" >Book Recommendations</a>
+    	&nbsp;&nbsp;&nbsp;
+    	<a th:href="${@environment.getProperty('books_mgmt_url')}" >Books Management</a>
+    </p>
   </div>
 </body>
 </html>
