@@ -43,9 +43,14 @@ public class ReadingListController {
 	@RequestMapping(method = RequestMethod.POST)
     public String addToReadingList(Reader reader, @RequestParam("isbn10") String isbn10, @RequestParam("isbn13") String isbn13, @RequestParam("title") String title, @RequestParam("author") String author, @RequestParam("review") String review, @RequestParam("rating") float rating) {
 
-		Book book = bookRepository.findByIsbn10OrIsbn13(isbn10, isbn13);
+		Book book = null;
+		if (isbn13 != null && !isbn13.trim().equals("")) {
+			book = bookRepository.findByIsbn13(isbn13);
+		} else if (isbn10 != null && !isbn10.trim().equals("")) {
+			book = bookRepository.findByIsbn10(isbn10);
+		}
 		
-		if(book == null){
+		if (book == null) {
 			book = new Book();
 		}
 
