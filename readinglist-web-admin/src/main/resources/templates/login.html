@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
-  <title>Login</title>
-  <link rel="stylesheet" th:href="@{/css/style.css}"></link>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"></link>
 </head>
 <body onload='document.f.username.focus();'>
-  <div id="loginForm">
+<div id="loginForm">
     <h3>Login With Username and Password</h3>
     <div class="error" th:if="${param.error}">
-      Incorrect username or password. Try again.
+        Incorrect username or password. Try again.
     </div>
 
     <form name='f' th:action="@{/login}" method='POST'>
-      <table>
-        <tr>
-          <td>User:</td>
-          <td><input type='text' name='username' value=''/></td>
-        </tr>
-        <tr>
-          <td>Password:</td>
-          <td><input type='password' name='password'/></td>
-        </tr>
-        <tr>
-          <td colspan='2'><input name="submit" type="submit" value="Login"/></td>
-        </tr>
-      </table>
+        <table>
+            <tr>
+                <td>User:</td>
+                <td><input type='text' name='username' value=''/></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type='password' name='password'/></td>
+            </tr>
+            <tr>
+                <td colspan='2'><input name="submit" type="submit" value="Login"/></td>
+            </tr>
+        </table>
     </form>
-  </div>
-  <br/>
-  <hr/>
-  <div>
+</div>
+<br/>
+<hr/>
+<div>
     <p>
-    	<a th:href="${@environment.getProperty('rest_client_url')}" >Book Recommendations</a>
-    	&nbsp;&nbsp;&nbsp;
-    	<a th:href="${@environment.getProperty('books_mgmt_url')}" >Books Management</a>
+        <a th:href="${@environment.getProperty('rest_client_url')}">Book Recommendations</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="${@environment.getProperty('books_mgmt_url')}">Books Management</a>
     </p>
-  </div>
+</div>
 </body>
 </html>

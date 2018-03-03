@@ -13,31 +13,31 @@ import javax.persistence.ManyToOne;
 public class ReadingList {
 
     @Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long readinglist_id;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reader_id")
     private Reader reader;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
     private Book book;
-    
+
     @Lob
-	private String review;
+    private String review;
     private float rating;
 
-    
-	public Long getReadinglist_id() {
-		return readinglist_id;
-	}
 
-	public void setReadinglist_id(Long readinglist_id) {
-		this.readinglist_id = readinglist_id;
-	}
+    public Long getReadinglist_id() {
+        return readinglist_id;
+    }
 
-	public Reader getReader() {
+    public void setReadinglist_id(Long readinglist_id) {
+        this.readinglist_id = readinglist_id;
+    }
+
+    public Reader getReader() {
         return reader;
     }
 
@@ -52,27 +52,27 @@ public class ReadingList {
     public void setReview(String description) {
         this.review = description;
     }
-    
+
     public float getRating() {
-		return rating;
-	}
+        return rating;
+    }
 
-	public void setRating(float rating) {
-		this.rating = rating;
-	}
-	
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
     public Book getBook() {
-		return book;
-	}
+        return book;
+    }
 
-	public void setBook(Book book) {
-		this.book = book;
-	}
+    public void setBook(Book book) {
+        this.book = book;
+    }
 
-	@Override
-	public String toString() {
-		return "ReadingList [readinglist_id=" + readinglist_id + ", reader=" + reader + ", book=" + book + ", review="
-				+ review + ", rating=" + rating + "]";
-	}
+    @Override
+    public String toString() {
+        return "ReadingList [readinglist_id=" + readinglist_id + ", reader=" + reader + ", book=" + book + ", review="
+                + review + ", rating=" + rating + "]";
+    }
 
 }

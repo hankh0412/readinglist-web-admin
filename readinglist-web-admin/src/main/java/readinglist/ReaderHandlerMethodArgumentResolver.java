@@ -9,16 +9,16 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 
 public class ReaderHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
-	@Override
-	public boolean supportsParameter(MethodParameter parameter) {
-		return Reader.class.isAssignableFrom(parameter.getParameterType());
-	}
+    @Override
+    public boolean supportsParameter(MethodParameter parameter) {
+        return Reader.class.isAssignableFrom(parameter.getParameterType());
+    }
 
-	@Override
-	public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
-			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-		Authentication auth = (Authentication) webRequest.getUserPrincipal();
+    @Override
+    public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
+                                  NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+        Authentication auth = (Authentication) webRequest.getUserPrincipal();
         return auth != null && auth.getPrincipal() instanceof Reader ? auth.getPrincipal() : null;
-	}
+    }
 
 }

@@ -6,6 +6,7 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,19 +14,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 public class Reader implements UserDetails {
 
-	private static final long serialVersionUID = 4102659754585707669L;
-	
-	
-	@Id
-	@Column(nullable = false, length = 20)
+    private static final long serialVersionUID = 4102659754585707669L;
+
+
+    @Id
+    @Column(nullable = false, length = 20)
     private String username;
-	
-	@Column(length = 50)
+
+    @Column(length = 50)
     private String fullname;
-	
-	@Column(length = 20)
+
+    @Column(length = 20)
     private String password;
-    
+
 
     public String getUsername() {
         return username;
@@ -51,7 +52,7 @@ public class Reader implements UserDetails {
         this.password = password;
     }
 
-    
+
     // UserDetails 메서드
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -78,9 +79,9 @@ public class Reader implements UserDetails {
         return true;
     }
 
-	@Override
-	public String toString() {
-		return "Reader [username=" + username + ", fullname=" + fullname + ", password=" + password + "]";
-	}
+    @Override
+    public String toString() {
+        return "Reader [username=" + username + ", fullname=" + fullname + ", password=" + password + "]";
+    }
 
 }

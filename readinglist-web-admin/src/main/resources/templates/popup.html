@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
-<link rel="stylesheet" th:href="@{/css/style.css}"></link>
-<script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"></link>
+    <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
 
-<script>
-/*<![CDATA[*/
-	
-function act(isbn10,isbn13,author,title) {
-	
-	$('#span_title', opener.document).html(title);
-	$('input[name=title]', opener.document).val(title);
-	$('#span_author', opener.document).html(author);
-	$('input[name=author]', opener.document).val(author);
-	$('input[name=isbn10]', opener.document).val(isbn10);
-	$('input[name=isbn13]', opener.document).val(isbn13);
-	window.close();
+    <script>
+        /*<![CDATA[*/
 
-}
+        function act(isbn10, isbn13, author, title) {
 
-$(document).ready(function() { 
+            $('#span_title', opener.document).html(title);
+            $('input[name=title]', opener.document).val(title);
+            $('#span_author', opener.document).html(author);
+            $('input[name=author]', opener.document).val(author);
+            $('input[name=isbn10]', opener.document).val(isbn10);
+            $('input[name=isbn13]', opener.document).val(isbn13);
+            window.close();
 
-    $.ajax({
-        type:"GET",
-        dataType: "jsonp",
-        url:"https://apis.daum.net/search/book?apikey=7c3d5935bcb313f4883d128bc13aabdc&q="+$('input[name=searchWord]', opener.document).val()+"&output=json&sort=accu",
-        success:function(json){
-            for(var i in json.channel.item){
-                var str_dl = "";
-                    str_dl += "<dl>";
-                    str_dl += "    <dt class=\"bookHeadline\">";
-                    str_dl += "        <input type=\"hidden\" name=\"isbn10\" value=\""+json.channel.item[i].isbn+"\" >";
-                    str_dl += "        <input type=\"hidden\" name=\"isbn13\" value=\""+json.channel.item[i].isbn13+"\" >";
-                    str_dl += "        <input type=\"hidden\" name=\"author\" value=\""+json.channel.item[i].author+"\" >";
-                    str_dl += "        <input type=\"hidden\" name=\"title\" value=\""+json.channel.item[i].title+"\" >";
-                    str_dl += "        <a href=\"javascript:act('"+json.channel.item[i].isbn+"','"+json.channel.item[i].isbn13+"','"+json.channel.item[i].author+"','"+json.channel.item[i].title+"');\" >";
-                    str_dl += "            <img src=\""+json.channel.item[i].cover_s_url+"\"/>";
-                    str_dl += "    	    "+json.channel.item[i].title+" by "+json.channel.item[i].author+" (ISBN13: "+json.channel.item[i].isbn13+")";
-                    str_dl += "        </a>";
-                    str_dl += "    </dt>";
-                    str_dl += "    <dd class=\"bookReview\">";
-                    str_dl += "        "+json.channel.item[i].description;
-                    str_dl += "    </dd>";
-                    str_dl += "</dl>";
-                    str_dl += "<br/>";
-                $('#main_section').append(str_dl);
-            }
         }
-	});
-    
-});
-/*]]>*/
-</script>
- 
+
+        $(document).ready(function () {
+
+            $.ajax({
+                type: "GET",
+                dataType: "jsonp",
+                url: "https://apis.daum.net/search/book?apikey=7c3d5935bcb313f4883d128bc13aabdc&q=" + $('input[name=searchWord]', opener.document).val() + "&output=json&sort=accu",
+                success: function (json) {
+                    for (var i in json.channel.item) {
+                        var str_dl = "";
+                        str_dl += "<dl>";
+                        str_dl += "    <dt class=\"bookHeadline\">";
+                        str_dl += "        <input type=\"hidden\" name=\"isbn10\" value=\"" + json.channel.item[i].isbn + "\" >";
+                        str_dl += "        <input type=\"hidden\" name=\"isbn13\" value=\"" + json.channel.item[i].isbn13 + "\" >";
+                        str_dl += "        <input type=\"hidden\" name=\"author\" value=\"" + json.channel.item[i].author + "\" >";
+                        str_dl += "        <input type=\"hidden\" name=\"title\" value=\"" + json.channel.item[i].title + "\" >";
+                        str_dl += "        <a href=\"javascript:act('" + json.channel.item[i].isbn + "','" + json.channel.item[i].isbn13 + "','" + json.channel.item[i].author + "','" + json.channel.item[i].title + "');\" >";
+                        str_dl += "            <img src=\"" + json.channel.item[i].cover_s_url + "\"/>";
+                        str_dl += "    	    " + json.channel.item[i].title + " by " + json.channel.item[i].author + " (ISBN13: " + json.channel.item[i].isbn13 + ")";
+                        str_dl += "        </a>";
+                        str_dl += "    </dt>";
+                        str_dl += "    <dd class=\"bookReview\">";
+                        str_dl += "        " + json.channel.item[i].description;
+                        str_dl += "    </dd>";
+                        str_dl += "</dl>";
+                        str_dl += "<br/>";
+                        $('#main_section').append(str_dl);
+                    }
+                }
+            });
+
+        });
+        /*]]>*/
+    </script>
+
 </head>
 
 <body>
-	<div id="main_section">
-	</div>
+<div id="main_section">
+</div>
 </body>
 
 </html>

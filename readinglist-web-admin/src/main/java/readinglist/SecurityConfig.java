@@ -1,13 +1,13 @@
 package readinglist;
 
-import org.springframework.beans.factory.annotation.Autowired; 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetails; 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -21,13 +21,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-          .authorizeRequests()
-            .antMatchers("/").access("hasRole('READER')")
-            .antMatchers("/**").permitAll()
-          .and()
-          .formLogin()
-            .loginPage("/login")
-            .failureUrl("/login?error=true");
+                .authorizeRequests()
+                .antMatchers("/").access("hasRole('READER')")
+                .antMatchers("/**").permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .failureUrl("/login?error=true");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             @Override
             public UserDetails loadUserByUsername(String username)
                     throws UsernameNotFoundException {
-            	UserDetails user = readerRepository.findOne(username);
+                UserDetails user = readerRepository.findOne(username);
                 if (user != null) {
                     return user;
                 }
